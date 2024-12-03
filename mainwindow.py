@@ -80,8 +80,6 @@ class MainWindow(QWidget):
             self.viewtask = TaskView(tasks[task_selected], task_selected, self.taskmanager)
             self.viewtask.setWindowModality(Qt.ApplicationModal)
             self.viewtask.show()
-            
-            
         pass
     
     def loadTasks(self):

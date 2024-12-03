@@ -5,6 +5,7 @@ from tabulate import tabulate
 import sys
 from PySide6.QtWidgets import *
 from mainwindow import MainWindow
+from taskview import TaskView
 
 taskmanager = TaskManager()
 

@@ -1,12 +1,44 @@
 {
     "192.168.100.5": [
         {
-            "title": "doing do saome doi",
-            "description": "hellloo",
-            "font": "Lucida Console",
-            "font_style": "italic",
+            "title": "Doing do saome doi",
+            "description": "AMIGO",
+            "font": "Verdana",
+            "font_style": "bold",
             "font_size": "32",
+            "img": ""
+        },
+        {
+            "title": "task",
+            "description": "",
+            "font": "Segoe UI",
+            "font_style": "normal",
+            "font_size": "12",
+            "img": "C:/Users/laran/Downloads/pf.jpg"
+        },
+        {
+            "title": "task new",
+            "description": "",
+            "font": "Segoe UI",
+            "font_style": "normal",
+            "font_size": "12",
             "img": null
+        },
+        {
+            "title": "doing",
+            "description": "HEY",
+            "font": "Segoe UI",
+            "font_style": "italic",
+            "font_size": "44",
+            "img": "C:/Users/laran/Downloads/todo-img.jpg"
+        },
+        {
+            "title": "LOREWM",
+            "description": "",
+            "font": "Segoe UI",
+            "font_style": "normal",
+            "font_size": "12",
+            "img": "C:/Users/laran/Downloads/purp.jpg"
         }
     ]
 }

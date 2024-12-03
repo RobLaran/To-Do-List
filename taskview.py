@@ -12,7 +12,6 @@ class TaskView(QWidget):
         self.taskmanager = taskmanager
         self.setFixedSize(350,420)
         self.components()
-        self.loadTask()
         
         
     def components(self):
@@ -61,18 +60,20 @@ class TaskView(QWidget):
         self.button.setGeometry(230, 160, 100, 30)
         self.button.clicked.connect(self.setFont)
         
-        self.img = QLabel('IMG', self)
+        self.img = QLabel(self)
         self.img.setGeometry(40, 60, 130, 130)
         self.img.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.img.setStyleSheet(""" 
                                background-color: gray;
                                """)
+        self.img.setScaledContents(True)
+        self.img.mousePressEvent
         
         self.label = QLineEdit(self.task.title, self)
         self.label.setGeometry(40, 28, 130, 30)
         self.label.setAlignment(Qt.AlignmentFlag.AlignHCenter)
         pass
-
+        
     def setFont(self):
         self.task.title = self.label.text()
         font = self.fonts.currentText()
@@ -81,9 +82,7 @@ class TaskView(QWidget):
         self.texts.setStyleSheet(f"""
                                   font: {style} {size}px "{font}";
                                  """)
-        # print(tabulate(self.task.info() , headers='keys'))
         self.modifyTask()
-        
         pass
     
     def loadTask(self):
@@ -91,12 +90,12 @@ class TaskView(QWidget):
         font = self.task.font
         font_size = self.task.font_size
         font_style = self.task.font_style
+        img = str(self.task.img)
         
         self.fonts.setCurrentText(font)        
         self.font_sizes.setCurrentText(font_size)        
         self.font_styles.setCurrentText(font_style)        
-        print(font, font_size, font_style)
-
+        self.img.setPixmap(QPixmap(img))
         self.texts.setStyleSheet(f"""
                                   font: {font_style} {font_size}px "{font}";
                                  """)
@@ -110,10 +109,18 @@ class TaskView(QWidget):
         self.taskmanager.editTask(self.index, self.task)
         pass
     
+    def mousePressEvent(self, event):
+        file_dialog = QFileDialog(self)
+        file_name = file_dialog.getOpenFileName(self, '', '', 'Images (*.png *.xpm *.jpg)')[0]
+        if len(file_name.strip()) != 0: 
+            self.task.img = file_name
+            self.img.setPixmap(QPixmap(self.task.img))
+        return super().mousePressEvent(event)
+    
     def showEvent(self, event):
-        
+        self.loadTask()
         return super().showEvent(event)
     
     def closeEvent(self, event):
-        
+        self.modifyTask()
         return super().closeEvent(event)
