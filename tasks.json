@@ -40,5 +40,15 @@
             "font_size": "12",
             "img": "C:/Users/laran/Downloads/purp.jpg"
         }
+    ],
+    "127.0.1.1": [
+        {
+            "title": "TASK",
+            "description": "HEY",
+            "font": "Courier",
+            "font_style": "bold",
+            "font_size": "44",
+            "img": "/mnt/c/Users/laran/Downloads/woody.jpg"
+        }
     ]
 }
